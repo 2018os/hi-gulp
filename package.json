@@ -12,6 +12,9 @@
   "repository": "https://github.com/2018os/hi-gulp",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/register": "^7.12.13"
   }
 }
