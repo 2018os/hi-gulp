@@ -1,5 +1,6 @@
 import gulp from "gulp";
 import gpug from "gulp-pug";
+import gimage from "gulp-image";
 import del from "del";
 import ws from "gulp-webserver";
 
@@ -8,6 +9,10 @@ const routes = {
     watch: "src/**/*.pug",
     src: "src/*.pug",
     dest: "build",
+  },
+  img: {
+    src: "src/img/*",
+    dest: "build/img",
   },
 };
 
@@ -24,11 +29,16 @@ const webserver = () =>
     })
   );
 
+const img = () =>
+  gulp.src(routes.img.src).pipe(gimage()).pipe(gulp.dest(routes.img.dest));
+
 const watch = () => {
   gulp.watch(routes.pug.watch, pug);
+  gulp.watch(routes.img.src, img);
+  // watch routes.img.src => run img function
 };
 
-const prepare = gulp.series([clean]);
+const prepare = gulp.series([clean, img]);
 
 const assets = gulp.series([pug]);
 
