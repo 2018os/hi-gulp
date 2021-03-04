@@ -1,2 +1,0 @@
-# hi-gulp
-Gulp exmaples
